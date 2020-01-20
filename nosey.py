@@ -62,9 +62,12 @@ print '[+] Checking for open ports'
 time.sleep(3)
 print ' '
 
-http = os.system('cat initial-scan.nmap | grep --color 80/tcp')
-https = os.system('cat initial-scan.nmap | grep --color 443/tcp')
+http = os.system('cat initial-scan.nmap | grep --color -E "(^|\s)http($|\s)"')
+http_port = os.system("cat initial-scan.nmap | grep --color -E '(^|\s)http($|\s)' | awk -F/ '{print $1}' ")
+https = os.system('cat initial-scan.nmap | grep --color -E "(^|\s)https($|\s)"')
+https_port = os.system("cat initial-scan.nmap | grep --color -E '(^|\s)https($|\s)' | awk -F/ '{print $1}' ")
 smb = os.system('cat initial-scan.nmap | grep --color 445/tcp')
+
 # future = os.system('cat initial-scan.nmap | grep --color 443/tcp')
 
 print ' '
@@ -77,27 +80,27 @@ if http == 0:
 	os.system(green)
 	print '[+] Starting HTTP Dirb directory scan...\n'
 	os.system(plain)
-	dirb.dirb_http()
+	dirb.dirb_http(http_port)
 	print '\n'
 	print '-\/-' * 15
 	print '\n'
 	os.system(green)
 	print '[+] Starting HTTP Nikto Scan...\n'
 	os.system(plain)
-	nikto.nikto_http()
+	nikto.nikto_http(http_port)
 
 elif https == 0:
 	os.system(green)
 	print '[+] Starting HTTPS Dirb directory scan...\n'
 	os.system(plain)
-	dirb.dirb_https()
+	dirb.dirb_https(https_port)
 	print '\n'
 	print '-\/-' * 15
 	print '\n'
 	os.system(green)
 	print '[+] Starting HTTPS Nikto Scan...\n'
 	os.system(plain)
-	nikto.nikto_https()
+	nikto.nikto_https(https_port)
 
 else:
 	os.system(red)
