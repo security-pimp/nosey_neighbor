@@ -20,7 +20,9 @@
 - Added in Enum4linux
 - Color to headings
 
- 
+ **V1.2** (Forked Version)
+- Added options for non default ports for HTTP/HTTPS service scans
+
  
  **********************************************************************************************************
  
