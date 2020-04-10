@@ -1,5 +1,5 @@
 # nosey_neighbour
-<h2>Automated Basic Enumeration script for Penetration Testing.</h2>
+<h2>Automated Basic Enumeration Tools for Penetration Testing.</h2>
 
 <h5>Assumes Kali / ParrotOS distro which includes: Dirb, Nikto, Nmap, Enum4linux</h5>
 
