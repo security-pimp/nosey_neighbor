@@ -44,7 +44,7 @@ stickfish V1.1 2019
 os.system(plain)
 
 def nmap():
-	cmd = 'nmap -Pn -p- -T4 ' + target + ' -vv -oA initial-scan '
+	cmd = 'nmap -vv --reason -Pn -A --osscan-guess --version-all -p- ' + target + ' -oA nosey-scan '
 	os.system(green)
 	print '[+] Command run: ' + cmd
 	os.system(plain)
@@ -62,13 +62,17 @@ print '[+] Checking for open ports'
 time.sleep(3)
 print ' '
 
-http = os.system('cat initial-scan.nmap | grep --color -E "(^|\s)http($|\s)"')
-http_port = os.system("cat initial-scan.nmap | grep --color -E '(^|\s)http($|\s)' | awk -F/ '{print $1}' ")
-https = os.system('cat initial-scan.nmap | grep --color -E "(^|\s)https($|\s)"')
-https_port = os.system("cat initial-scan.nmap | grep --color -E '(^|\s)https($|\s)' | awk -F/ '{print $1}' ")
-smb = os.system('cat initial-scan.nmap | grep --color 445/tcp')
+http = os.system('cat nosey-scan.nmap | grep --color -E "(^|\s)http($|\s)"')
+http_port = os.system("cat nosey-scan.nmap | grep --color -E '(^|\s)http($|\s)' | awk -F/ '{print $1}' ")
+https = os.system('cat nosey-scan.nmap | grep --color -E "(^|\s)https($|\s)"')
+https_port = os.system("cat nosey-scan.nmap | grep --color -E '(^|\s)https($|\s)' | awk -F/ '{print $1}' ")
+smb0 = os.system('cat nosey-scan.nmap | grep --color -E "(^|\s)msrpc($|\s)"')
+smb1 = os.system('cat nosey-scan.nmap | grep --color -E "(^|\s)netbios($|\s)"')
+smb2 = os.system('cat nosey-scan.nmap | grep --color -E "(^|\s)microsoft-ds($|\s)"')
+ssh = os.system('cat nosey-scan.nmap | grep --color -E "(^|\s)ssh($|\s)"')
 
-# future = os.system('cat initial-scan.nmap | grep --color 443/tcp')
+
+# future = os.system('cat nosey-scan.nmap | grep --color 443/tcp')
 
 print ' '
 print '-\/-' * 15
@@ -78,30 +82,30 @@ print ' '
 
 if http == 0:
 	os.system(green)
-	print '[+] Starting HTTP Dirb directory scan...\n'
+	print '[+] Starting HTTP Directory Scans...\n'
 	os.system(plain)
 	dirb.dirb_http(http_port)
 	print '\n'
 	print '-\/-' * 15
 	print '\n'
 	os.system(green)
-	print '[+] Starting HTTP Nikto Scan...\n'
+	print '[+] Starting HTTP Service Scans...\n'
 	os.system(plain)
 	nikto.nikto_http(http_port)
 
 elif https == 0:
 	os.system(green)
-	print '[+] Starting HTTPS Dirb directory scan...\n'
+	print '[+] Starting HTTPS Directory Scans...\n'
 	os.system(plain)
 	dirb.dirb_https(https_port)
 	print '\n'
 	print '-\/-' * 15
 	print '\n'
 	os.system(green)
-	print '[+] Starting HTTPS Nikto Scan...\n'
+	print '[+] Starting HTTPS Service Scans...\n'
 	os.system(plain)
 	nikto.nikto_https(https_port)
-
+	
 else:
 	os.system(red)
 	print 'No HTTP/S ports found on standard numbering, check Nmap results to make sure.'
@@ -109,15 +113,30 @@ else:
 
 # If tcp 445 open
 
-if smb == 0:
+if smb0 == 0:
 	os.system(green)
 	print '[+] Starting SMB / Samba service scan...\n'
 	os.system(plain)
-	smb.smb_windows()
+	smb.smb_windows_share()
 	print '\n'
 	print '-\/-' * 15
 	print '\n'
-	
+elif smb1 == 0:
+	os.system(green)
+	print '[+] Starting SMB / Samba service scan...\n'
+	os.system(plain)
+	smb.smb_windows_domain()
+	print '\n'
+	print '-\/-' * 15
+	print '\n'
+elif smb2 == 0:
+	os.system(green)
+	print '[+] Starting SMB / Samba service scan...\n'
+	os.system(plain)
+	smb.smb_windows_rpc()
+	print '\n'
+	print '-\/-' * 15
+	print '\n'	
 else:
 	os.system(red)
 	print 'No open SMB ports found on standard numbering, check Nmap results to make sure.'
