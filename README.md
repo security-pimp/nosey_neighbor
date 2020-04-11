@@ -23,7 +23,7 @@
  **V1.2** (Forked Version)
 - Added options for non default ports for HTTP/HTTPS service scans
 
- **V1.2** (Forked Version)
+ **V1.3** (Forked Version)
 - Added License
 - Added Brute Force Functions
 - Added More HTTP/HTTPS Scans
