@@ -1,13 +1,30 @@
-# nosey_neighbour
-<h2>Automated Basic Enumeration Tools for Penetration Testing.</h2>
+```
+          8b,dPPYba,    ,adPPYba,   ,adPPYba,   ,adPPYba,  8b       d8  
+          88P'   `"8a  a8"     "8a  I8[    ""  a8P_____88  `8b     d8'  
+          88       88  8b       d8   `"Y8ba,   8PP"""""""   `8b   d8'   
+          88       88  "8a,   ,a8"  aa    ]8I  "8b,   ,aa    `8b,d8'    
+          88       88   `"YbbdP"'   `"YbbdP"'   `"Ybbd8"'      Y88'     
+                      ._   _  o  _  |_  |_   _  ._             d8'      
+                      | | (/_ | (_| | | |_) (_) |             d8'       
+                                 _|               
+          -----------------------------------------------------------
+          #				Sniffing @ Your Network  #
+          -----------------------------------------------------------
+```
 
-<h5>Assumes Kali / ParrotOS distro which includes: Dirb, Nikto, Nmap, Enum4linux</h5>
+### Automated Basic Enumeration Tools for Penetration Testing.</h2>
 
-**Installation is easy:**
+#### Assumes Kali / ParrotOS distro which includes required toolsets</h5>
+
+**Installation:**
+```
 `cd /opt; git clone https://github.com/stick-fish/nosey_neighbour.git ; cd /opt/nosey_neighbour; chmod 755 nosey.py`
+```
 
 **Basic Usage:**
-`./nosey.py 10.10.10.123`
+```
+./nosey.py 10.10.10.123`
+```
 
 <h3>Recent changes made:</h3>
 
