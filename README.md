@@ -54,6 +54,7 @@
  
  **TODO:**
 > - Include additional scanning
+> - Include Output Directory Options
 > - Incorporate pass the hash
 > - Include the option to change Nmap flags 
 > - Change to full class to remove if...else for every port
