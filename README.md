@@ -29,6 +29,7 @@
 - Added More HTTP/HTTPS Scans
 - Added More Directory Scans
 - Added Eyewitness Screenshots for HTTP/HTTPS
+- Added Windows Service Scans
 - Updated Ascii Art
 
  
