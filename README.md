@@ -52,11 +52,11 @@
  
  **********************************************************************************************************
  
- TODO:
-- Include additional scanning
-- Incorporate pass the hash
-- Include the option to change Nmap flags 
-- Change to full class to remove if...else for every port
-- Fix Brute Force
-- Add More Intelligent WWW Enumeration & Scans
-- Add More Active Directory Enumeration & Scans
+ **TODO:**
+> - Include additional scanning
+> - Incorporate pass the hash
+> - Include the option to change Nmap flags 
+> - Change to full class to remove if...else for every port
+> - Fix Brute Force
+> - Add More Intelligent WWW Enumeration & Scans
+> - Add More Active Directory Enumeration & Scans

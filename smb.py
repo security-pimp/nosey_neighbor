@@ -29,6 +29,9 @@ def smb_windows_domain():
 def smb_windows_rpc():
 	cmd620 = 'sslscan --show-certificate --no-colour ' + target
 	cmd621 = 'rcpclient -U "" ' + target + ' -c "srvinfo;enumdomusers;getdompwinfo;querydominfo;netshareenum;netshareenumall"'
+	cmd622 = 'nmap -vv --reason -Pn -sV -p 135 --script="banner,msrpc-enum,rpc-grind,rpcinfo" -oA "rpc_nmap" ' + target
 	print('[+] Running Windows RPC Enumeration... ')
 	os.system(cmd620)
+	os.system(621)
+	os.system(622)
 	
