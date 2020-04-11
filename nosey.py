@@ -1,8 +1,9 @@
 #!/usr/bin/python
 
 import sys, os, time
-import nikto
+import http_scan
 import dirb
+import bforce
 import smb
 
 
@@ -10,7 +11,7 @@ if len(sys.argv) > 1:
     target = str(sys.argv[1])
 else:
     print('Please Provide A Target To Scan [ Ex: python ./nosey.py 10.10.1.10 ]')
-	exit()
+
 
 
 '''
@@ -41,11 +42,11 @@ print ('''
 88       88  8b       d8   `"Y8ba,   8PP"""""""   `8b   d8'   
 88       88  "8a,   ,a8"  aa    ]8I  "8b,   ,aa    `8b,d8'    
 88       88   `"YbbdP"'   `"YbbdP"'   `"Ybbd8"'      Y88'     
-          	._   _  o  _  |_  |_   _  ._             d8'      
+            ._   _  o  _  |_  |_   _  ._             d8'      
             | | (/_ | (_| | | |_) (_) |             d8'       
                        _|               
 -----------------------------------------------------------
-#								Sniffing @ Your Network  #
+#                                Sniffing @ Your Network  #
 -----------------------------------------------------------
 ''')
 
