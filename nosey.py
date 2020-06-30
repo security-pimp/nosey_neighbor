@@ -3,7 +3,7 @@
 import sys, os, time
 import http_scan
 import dirb
-import bforce
+# import bforce
 import smb
 import other_svc
 
@@ -171,7 +171,7 @@ if ssh == 0:
 	print('[+] Starting SSH service scan...\n')
 	os.system(plain)
 	other_svc.ssh_svc(ssh_port)
-	bforce.bforce_ssh()
+#	bforce.bforce_ssh()
 	print('\n')
 	print('-\/-' * 15)
 	print('\n')
